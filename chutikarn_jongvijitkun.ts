@@ -10,7 +10,7 @@ function quickestPath({ portals: {"location": number, "destination": number}[]})
     let turn = 0;
     
     // try to walk from 1 to 11 steps
-    while (currentPos !== 200) {
+    while (currentPos < 200) {
         for (let i = 1; i <= 11; i++) {
         let nextPos = currentPos + i;
         if (nextPos > 200) continue;
