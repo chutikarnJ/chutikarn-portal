@@ -9,23 +9,22 @@ function quickestPath({ portals: {"location": number, "destination": number}[]})
     let bestPos = 0;
     let turn = 0;
     
-
     // try to walk from 1 to 11 steps
     while (currentPos !== 200) {
         for (let i = 1; i <= 11; i++) {
         let nextPos = currentPos + i;
+        if (nextPos > 200) continue;
         if (map.has(nextPos)) {
             nextPos = map.get(nextPos)!;
         }
         
         //select highest nextPos
-        if (bestPos < nextPos) {
-            bestPos = nextPos;
+        if (nextPos > bestPos) {
+         bestPos = nextPos;
         }
-
-
-        turn++;
     }
+        currentPos = bestPos;
+        turn++;
     }
     return turn;
     
